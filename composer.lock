@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a7885a5138bd01e0c43535b505aacb0",
+    "content-hash": "1c9197e08aaff956cd8c8db7cb75b3f1",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -1292,6 +1292,71 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/master"
             },
             "time": "2020-06-29T00:56:53+00:00"
+        },
+        {
+            "name": "fouladgar/laravel-mobile-verification",
+            "version": "v2.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mohammad-fouladgar/laravel-mobile-verification.git",
+                "reference": "cdecbca6b36df3c7a5b41d09a824617e3ee8dd45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mohammad-fouladgar/laravel-mobile-verification/zipball/cdecbca6b36df3c7a5b41d09a824617e3ee8dd45",
+                "reference": "cdecbca6b36df3c7a5b41d09a824617e3ee8dd45",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "illuminate/notifications": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.0.4",
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^4.9|^5.8|^6.3",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Fouladgar\\MobileVerification\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fouladgar\\MobileVerification\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammad Fouladgar",
+                    "email": "fouladgar.dev@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "keywords": [
+                "laravel",
+                "laravel-mobile-verification",
+                "lumen",
+                "mobile",
+                "mobile-verification",
+                "mobile-verifier"
+            ],
+            "support": {
+                "issues": "https://github.com/mohammad-fouladgar/laravel-mobile-verification/issues",
+                "source": "https://github.com/mohammad-fouladgar/laravel-mobile-verification"
+            },
+            "time": "2021-04-01T09:35:34+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
@@ -4175,6 +4240,80 @@
             "time": "2021-07-05T08:18:36+00:00"
         },
         {
+            "name": "nagy/laravel-rating",
+            "version": "v2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mohamednagy/Laravel-rating.git",
+                "reference": "febd673ab87709c56231bce038f000597e8a4993"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mohamednagy/Laravel-rating/zipball/febd673ab87709c56231bce038f000597e8a4993",
+                "reference": "febd673ab87709c56231bce038f000597e8a4993",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^8.0|^7.0|^6.0",
+                "php": "^8.0|^7.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0|^5.0|^4.0",
+                "phpunit/phpunit": "^9.3|^8.0",
+                "vimeo/psalm": "^4.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nagy\\LaravelRating\\LaravelRatingServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelRatingFacade": "Nagy\\LaravelRating\\LaravelRatingFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nagy\\LaravelRating\\": "src",
+                    "Nagy\\LaravelRating\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmed Nagi",
+                    "email": "info@ahmednagi.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Mohamed Nagy",
+                    "email": "mohamed.n.haleem@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "manage rating column for elqouent models",
+            "homepage": "https://github.com/nagy/laravel-rating",
+            "keywords": [
+                "laravel-rating",
+                "nagy"
+            ],
+            "support": {
+                "issues": "https://github.com/mohamednagy/Laravel-rating/issues",
+                "source": "https://github.com/mohamednagy/Laravel-rating/tree/v2.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/nagy",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-04-22T08:03:25+00:00"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "2.53.1",
             "source": {
@@ -5634,6 +5773,89 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
+        },
+        {
+            "name": "rinvex/countries",
+            "version": "v8.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rinvex/countries.git",
+                "reference": "4614e0283c16234c48819000690d37210407375b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rinvex/countries/zipball/4614e0283c16234c48819000690d37210407375b",
+                "reference": "4614e0283c16234c48819000690d37210407375b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0.0"
+            },
+            "require-dev": {
+                "codedungeon/phpunit-result-printer": "^0.31.0",
+                "phpunit/phpunit": "^9.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rinvex\\Country\\Providers\\CountryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Rinvex\\Country\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rinvex LLC",
+                    "email": "help@rinvex.com",
+                    "homepage": "https://rinvex.com"
+                },
+                {
+                    "name": "Abdelrahman Omran",
+                    "email": "me@omranic.com",
+                    "homepage": "https://omranic.com",
+                    "role": "Project Lead"
+                },
+                {
+                    "name": "The Generous PHP Community",
+                    "homepage": "https://github.com/rinvex/countries/contributors"
+                }
+            ],
+            "description": "Rinvex Countries is a simple and lightweight package for retrieving country details with flexibility. A whole bunch of data including name, demonym, capital, iso codes, dialling codes, geo data, currencies, flags, emoji, and other attributes for all 250 countries worldwide at your fingertips.",
+            "homepage": "https://rinvex.com",
+            "keywords": [
+                "Flexible",
+                "Simple",
+                "countries",
+                "country",
+                "currencies",
+                "demonym",
+                "dialling",
+                "emoji",
+                "flags",
+                "geographic",
+                "languages",
+                "rinvex",
+                "svg"
+            ],
+            "support": {
+                "docs": "https://github.com/rinvex/countries/blob/master/README.md",
+                "email": "help@rinvex.com",
+                "issues": "https://github.com/rinvex/countries/issues",
+                "source": "https://github.com/rinvex/countries"
+            },
+            "time": "2021-08-22T00:44:29+00:00"
         },
         {
             "name": "sabberworm/php-css-parser",
