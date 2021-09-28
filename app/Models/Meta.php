@@ -30,7 +30,10 @@ class Meta extends Model
         'id' => 'integer',
     ];
 
-    public function metaable()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function metaable(): \Illuminate\Database\Eloquent\Relations\MorphTo
     {
         return $this->morphTo();
     }
