@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Meta extends Model
+class Vehicle extends Model
 {
     use HasFactory;
 
@@ -15,11 +15,15 @@ class Meta extends Model
      * @var array
      */
     protected $fillable = [
-        'key',
-        'value',
-        'type',
-        'group',
-        'metaable',
+        'make',
+        'model',
+        'year',
+        'licence_plate',
+        'color',
+        'lat',
+        'lng',
+        'is_online',
+        'image',
     ];
 
     /**
@@ -31,7 +35,14 @@ class Meta extends Model
         'id' => 'integer',
     ];
 
-    public function metaable() {
-        return $this->morphTo();
+
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class);
+    }
+
+    public function vehicleType()
+    {
+        return $this->hasOne(\App\Models\VehicleType::class);
     }
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Meta extends Model
+class PackageSize extends Model
 {
     use HasFactory;
 
@@ -15,11 +15,10 @@ class Meta extends Model
      * @var array
      */
     protected $fillable = [
-        'key',
-        'value',
-        'type',
-        'group',
-        'metaable',
+        'name',
+        'description',
+        'price',
+        'image',
     ];
 
     /**
@@ -29,9 +28,6 @@ class Meta extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'price' => 'float',
     ];
-
-    public function metaable() {
-        return $this->morphTo();
-    }
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Meta extends Model
+class UserDocument extends Model
 {
     use HasFactory;
 
@@ -15,11 +15,10 @@ class Meta extends Model
      * @var array
      */
     protected $fillable = [
-        'key',
-        'value',
         'type',
-        'group',
-        'metaable',
+        'attachment',
+        'status',
+        'image',
     ];
 
     /**
@@ -31,7 +30,9 @@ class Meta extends Model
         'id' => 'integer',
     ];
 
-    public function metaable() {
-        return $this->morphTo();
+
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class);
     }
 }

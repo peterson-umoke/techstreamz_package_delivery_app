@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Meta extends Model
+class DeliveryType extends Model
 {
     use HasFactory;
 
@@ -15,11 +15,10 @@ class Meta extends Model
      * @var array
      */
     protected $fillable = [
-        'key',
-        'value',
-        'type',
-        'group',
-        'metaable',
+        'name',
+        'description',
+        'per_km_mile_charge',
+        'image',
     ];
 
     /**
@@ -29,9 +28,6 @@ class Meta extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'per_km_mile_charge' => 'float',
     ];
-
-    public function metaable() {
-        return $this->morphTo();
-    }
 }
