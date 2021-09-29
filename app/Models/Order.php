@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
+use App\Library\Hasmeta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Order extends Model
 {
     use HasFactory, SoftDeletes;
+    use Hasmeta;
+    use InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
