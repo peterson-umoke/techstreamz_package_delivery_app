@@ -26,7 +26,7 @@ class Vehicle extends Model
         'licence_plate',
         'color',
         'lat',
-        'long',
+        'lng',
         'is_online',
         'image',
     ];

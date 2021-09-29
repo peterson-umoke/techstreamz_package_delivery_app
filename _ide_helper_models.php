@@ -12,46 +12,6 @@
 
 namespace App\Models{
 /**
- * App\Models\Admin
- *
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DeliveryAddress[] $addresses
- * @property-read int|null $addresses_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserDocument[] $documents
- * @property-read int|null $documents_count
- * @property mixed $country
- * @property-read string $profile_photo_url
- * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\Spatie\MediaLibrary\MediaCollections\Models\Media[] $media
- * @property-read int|null $media_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Meta[] $meta
- * @property-read int|null $meta_count
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-read int|null $notifications_count
- * @property-read \App\Models\OrderSession|null $order_session
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
- * @property-read int|null $orders_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Permission[] $permissions
- * @property-read int|null $permissions_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Nagy\LaravelRating\Models\Rating[] $ratings
- * @property-read int|null $ratings_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\RiderOrder[] $rider_oder
- * @property-read int|null $rider_oder_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Role[] $roles
- * @property-read int|null $roles_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Cashier\Subscription[] $subscriptions
- * @property-read int|null $subscriptions_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
- * @property-read int|null $tokens_count
- * @method static \Illuminate\Database\Eloquent\Builder|Admin newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Admin newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|User permission($permissions)
- * @method static \Illuminate\Database\Eloquent\Builder|Admin query()
- * @method static \Illuminate\Database\Eloquent\Builder|User role($roles, $guard = null)
- */
-	class Admin extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
  * App\Models\Coupon
  *
  * @property int $id
@@ -116,7 +76,7 @@ namespace App\Models{
  * @property int $id
  * @property int $user_id
  * @property string|null $lat
- * @property string|null $long
+ * @property string|null $lng
  * @property string|null $city
  * @property string|null $state
  * @property string|null $country
@@ -147,7 +107,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|DeliveryAddress whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DeliveryAddress whereInstructions($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DeliveryAddress whereLat($value)
- * @method static \Illuminate\Database\Eloquent\Builder|DeliveryAddress whereLong($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DeliveryAddress whereLng($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DeliveryAddress whereState($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DeliveryAddress whereStreet($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DeliveryAddress whereUpdatedAt($value)
@@ -280,11 +240,11 @@ namespace App\Models{
  * @property string|null $receiver_email
  * @property string|null $receiver_phone
  * @property string|null $sender_location_lat
- * @property string|null $sender_location_long
+ * @property string|null $sender_location_lng
  * @property string|null $sender_location_string
  * @property string|null $sender_address_detail
  * @property string|null $receiver_location_lat
- * @property string|null $receiver_location_long
+ * @property string|null $receiver_location_lng
  * @property string|null $receiver_location_string
  * @property string|null $receiver_address_detail
  * @property string $status pending, accepted,completed,cancelled,assigned-to-rider
@@ -325,14 +285,14 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereReceiverAddressDetail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereReceiverEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereReceiverLocationLat($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Order whereReceiverLocationLong($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereReceiverLocationLng($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereReceiverLocationString($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereReceiverName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereReceiverPhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereSenderAddressDetail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereSenderEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereSenderLocationLat($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Order whereSenderLocationLong($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereSenderLocationLng($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereSenderLocationString($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereSenderName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereSenderPhone($value)
@@ -455,7 +415,6 @@ namespace App\Models{
  * @method static \Database\Factories\PermissionFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Permission newQuery()
- * @method static \Illuminate\Database\Query\Builder|Permission onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Permission permission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission query()
  * @method static \Illuminate\Database\Eloquent\Builder|Permission role($roles, $guard = null)
@@ -464,8 +423,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|Permission withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Permission withoutTrashed()
  */
 	class Permission extends \Eloquent {}
 }
@@ -545,7 +502,6 @@ namespace App\Models{
  * @method static \Database\Factories\RoleFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Role newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Role newQuery()
- * @method static \Illuminate\Database\Query\Builder|Role onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Role permission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|Role query()
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereCreatedAt($value)
@@ -553,8 +509,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|Role withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Role withoutTrashed()
  */
 	class Role extends \Eloquent {}
 }
@@ -583,11 +537,22 @@ namespace App\Models{
  * @property string|null $mobile_verified_at
  * @property string|null $first_name
  * @property string|null $deleted_at
+ * @property string|null $lat
+ * @property string|null $lng
+ * @property string|null $gender
+ * @property string|null $city
+ * @property string|null $state
+ * @property string|null $date_of_birth
+ * @property int $is_online
+ * @property int $is_active
+ * @property string|null $device
+ * @property string|null $ip_address
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DeliveryAddress[] $addresses
  * @property-read int|null $addresses_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserDocument[] $documents
  * @property-read int|null $documents_count
  * @property mixed $country
+ * @property-read mixed $name
  * @property-read string $profile_photo_url
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\Spatie\MediaLibrary\MediaCollections\Models\Media[] $media
  * @property-read int|null $media_count
@@ -610,20 +575,33 @@ namespace App\Models{
  * @property-read int|null $subscriptions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
+ * @method static \Illuminate\Database\Eloquent\Builder|User admins($role = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|User customer($role = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|User drivers($role = [])
  * @method static \Database\Factories\UserFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|User nearestDrivers($latitude = 0, $longitude = 0, $radius = 400)
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User permission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
  * @method static \Illuminate\Database\Eloquent\Builder|User role($roles, $guard = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentTeamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereDateOfBirth($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereDevice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereGender($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIpAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIsOnline($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLng($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereMobile($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereMobileVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
@@ -631,6 +609,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePmType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereState($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereStripeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTrialEndsAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes($value)
@@ -691,7 +670,7 @@ namespace App\Models{
  * @property string|null $licence_plate
  * @property string|null $color
  * @property string|null $lat
- * @property string|null $long
+ * @property string|null $lng
  * @property bool $is_online
  * @property string|null $image
  * @property \Illuminate\Support\Carbon|null $deleted_at
@@ -714,7 +693,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Vehicle whereIsOnline($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vehicle whereLat($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vehicle whereLicencePlate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Vehicle whereLong($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vehicle whereLng($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vehicle whereMake($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vehicle whereModel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vehicle whereUpdatedAt($value)

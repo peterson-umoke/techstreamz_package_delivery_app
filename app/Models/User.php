@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Library\Hasmeta;
+use DB;
 use Fouladgar\MobileVerification\Concerns\MustVerifyMobile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -133,5 +134,16 @@ class User extends Authenticatable implements MustVerifyEmail, MustVerifyPhoneNu
     public function scopeCustomer(Builder $query, $role = ['customer'])
     {
         return $query->role($role);
+    }
+
+    public function scopeNearest_Drivers(Builder $query, $latitude = 0, $longitude = 0, $radius = 400)
+    {
+        return $query->selectRaw("6371 * acos(cos(radians(?))
+                                * cos(radians(lat)) * cos(radians(lng) - radians(?))
+                                + sin(radians(?)) * sin(radians(lat))) AS distance", [$latitude, $longitude, $latitude])
+            ->having("distance", "<", $radius)
+            ->orderBy("distance")
+            ->drivers()
+            ->where('is_online', 1);
     }
 }

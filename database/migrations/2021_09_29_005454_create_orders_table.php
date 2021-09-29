@@ -35,11 +35,11 @@ class CreateOrdersTable extends Migration
             $table->string('receiver_email')->nullable();
             $table->string('receiver_phone')->nullable();
             $table->string('sender_location_lat')->nullable();
-            $table->string('sender_location_long')->nullable();
+            $table->string('sender_location_lng')->nullable();
             $table->string('sender_location_string')->nullable();
             $table->string('sender_address_detail')->nullable();
             $table->string('receiver_location_lat')->nullable();
-            $table->string('receiver_location_long')->nullable();
+            $table->string('receiver_location_lng')->nullable();
             $table->string('receiver_location_string')->nullable();
             $table->string('receiver_address_detail')->nullable();
             $table->string('status')->default('pending')->comment('pending, accepted,completed,cancelled,assigned-to-rider');

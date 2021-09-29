@@ -27,7 +27,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
-
-Route::get('test', function () {
-    ddd(\App\Models\User::admins()->get());
-});
+//
+//Route::get('test', function () {
+//    $latitude       =       "28.418715";
+//    $longitude      =       "77.0478997";
+//    dd(\App\Models\User::nearest_drivers($latitude, $longitude,20)->get(),\App\Models\User::nearest_drivers()->toSql());
+//});

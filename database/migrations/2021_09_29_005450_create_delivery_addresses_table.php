@@ -17,7 +17,7 @@ class CreateDeliveryAddressesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('lat')->nullable();
-            $table->string('long')->nullable();
+            $table->string('lng')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('country')->nullable();

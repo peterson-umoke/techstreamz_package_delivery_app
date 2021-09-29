@@ -22,7 +22,7 @@ class DeliveryAddress extends Model
     protected $fillable = [
         'user_id',
         'lat',
-        'long',
+        'lng',
         'city',
         'state',
         'country',
