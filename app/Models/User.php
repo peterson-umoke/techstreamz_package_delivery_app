@@ -16,6 +16,7 @@ use Nagy\LaravelRating\Traits\Rate\CanRate;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
 use Fouladgar\MobileVerification\Contracts\MustVerifyMobile as MustVerifyPhoneNumber;
+use Illuminate\Database\Eloquent\Builder;
 
 class User extends Authenticatable implements MustVerifyEmail, MustVerifyPhoneNumber
 {
@@ -37,7 +38,9 @@ class User extends Authenticatable implements MustVerifyEmail, MustVerifyPhoneNu
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'mobile',
         'email',
         'password',
     ];
@@ -52,6 +55,11 @@ class User extends Authenticatable implements MustVerifyEmail, MustVerifyPhoneNu
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
+    ];
+
+    protected $append = [
+        'country',
+        'name',
     ];
 
     /**
@@ -95,5 +103,35 @@ class User extends Authenticatable implements MustVerifyEmail, MustVerifyPhoneNu
     public function documents()
     {
         return $this->hasMany(UserDocument::class);
+    }
+
+    public function getCountryAttribute()
+    {
+        return $this->getModelMeta('country_code')->value ?? "NG";
+    }
+
+    public function setCountryAttribute($attribute)
+    {
+        return $this->replaceMeta('country_code', $attribute);
+    }
+
+    public function getNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function scopeAdmins(Builder $query, $role = ['admin', 'superadmin'])
+    {
+        return $query->role($role);
+    }
+
+    public function scopeDrivers(Builder $query, $role = ['driver'])
+    {
+        return $query->role($role);
+    }
+
+    public function scopeCustomer(Builder $query, $role = ['customer'])
+    {
+        return $query->role($role);
     }
 }
