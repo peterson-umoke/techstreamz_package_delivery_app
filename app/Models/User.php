@@ -71,4 +71,29 @@ class User extends Authenticatable implements MustVerifyEmail, MustVerifyPhoneNu
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function addresses()
+    {
+        return $this->hasMany(DeliveryAddress::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function order_session()
+    {
+        return $this->hasOne(OrderSession::class);
+    }
+
+    public function rider_oder()
+    {
+        return $this->hasMany(RiderOrder::class);
+    }
+
+    public function documents()
+    {
+        return $this->hasMany(UserDocument::class);
+    }
 }

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 trait Hasmeta
 {
     /**
-     * Get all of the metas.
+     * Get all the metas.
      * @return MorphMany
      */
     public function meta(): MorphMany
@@ -72,7 +72,7 @@ trait Hasmeta
      * @param string $group
      * @return mixed
      */
-    public function deleteMeta(string $key, string $group = "")
+    public function deleteMeta(string $key, string $group = "default"): mixed
     {
         return $this->meta()->where('key', $key)->where('group', $group)->delete();
     }
