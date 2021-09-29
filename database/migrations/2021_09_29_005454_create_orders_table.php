@@ -20,11 +20,11 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('good_type_id');
             $table->unsignedBigInteger('delivery_type_id');
             $table->unsignedBigInteger('coupon_id');
-            $table->float('price', 15)->default('0');
-            $table->float('discount', 15)->nullable();
-            $table->float('delivery_fee', 15)->default('0');
+            $table->decimal('price', 15)->default('0');
+            $table->decimal('discount', 15)->nullable();
+            $table->decimal('delivery_fee', 15)->default('0');
             $table->string('is_cash_on_delivery')->default('0');
-            $table->float('total', 15)->default('0');
+            $table->decimal('total', 15)->default('0');
             $table->string('item_title')->nullable();
             $table->text('item_description')->nullable();
             $table->dateTime('pickup_datetime');
@@ -42,7 +42,7 @@ class CreateOrdersTable extends Migration
             $table->string('receiver_location_long')->nullable();
             $table->string('receiver_location_string')->nullable();
             $table->string('receiver_address_detail')->nullable();
-            $table->string('status')->default('pending');
+            $table->string('status')->default('pending')->comment('pending, accepted,completed,cancelled,assigned-to-rider');
             $table->string('signature')->nullable();
             $table->text('map')->nullable();
             $table->softDeletes();

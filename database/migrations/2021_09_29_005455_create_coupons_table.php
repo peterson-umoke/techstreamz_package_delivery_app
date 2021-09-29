@@ -16,9 +16,9 @@ class CreateCouponsTable extends Migration
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
             $table->text('coupon_code')->nullable();
-            $table->float('discount')->nullable();
+            $table->decimal('discount', 15)->nullable();
             $table->date('expiry_date')->nullable();
-            $table->string('type')->default('android');
+            $table->string('type')->default('android')->comment('Value can be android, web or ios');
             $table->string('limit_users')->default('1');
             $table->timestamps();
         });

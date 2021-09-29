@@ -17,7 +17,7 @@ class CreatePackageSizesTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->text('description')->nullable();
-            $table->float('price', 15)->nullable();
+            $table->decimal('price', 15)->nullable();
             $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();

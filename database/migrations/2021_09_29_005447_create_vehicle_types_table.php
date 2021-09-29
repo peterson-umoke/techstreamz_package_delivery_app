@@ -17,7 +17,7 @@ class CreateVehicleTypesTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->text('description')->nullable();
-            $table->float('per_km_mile_charge', 15)->nullable();
+            $table->decimal('per_km_mile_charge', 15)->nullable();
             $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();

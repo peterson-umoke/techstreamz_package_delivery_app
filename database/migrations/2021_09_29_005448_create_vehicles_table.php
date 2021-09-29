@@ -24,7 +24,7 @@ class CreateVehiclesTable extends Migration
             $table->string('color')->nullable();
             $table->string('lat')->nullable();
             $table->string('long')->nullable();
-            $table->boolean('is_online')->nullable();
+            $table->boolean('is_online')->default(0);
             $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();

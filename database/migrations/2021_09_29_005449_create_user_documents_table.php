@@ -18,7 +18,7 @@ class CreateUserDocumentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('type')->nullable();
             $table->string('attachment')->nullable();
-            $table->string('status')->default('pending');
+            $table->string('status')->default('pending')->comment('pending, rejected, confirmed');
             $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();
