@@ -4,17 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\OrderSession;
-use App\Models\User;
+use App\Models\Role;
 
-class OrderSessionFactory extends Factory
+class RoleFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = OrderSession::class;
+    protected $model = Role::class;
 
     /**
      * Define the model's default state.
@@ -24,8 +23,7 @@ class OrderSessionFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
-            'text' => $this->faker->text,
+            
         ];
     }
 }

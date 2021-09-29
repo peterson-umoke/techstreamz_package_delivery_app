@@ -4,17 +4,19 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\OrderSession;
+use App\Models\Coupon;
+use App\Models\CouponUsed;
+use App\Models\Order;
 use App\Models\User;
 
-class OrderSessionFactory extends Factory
+class CouponUsedFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = OrderSession::class;
+    protected $model = CouponUsed::class;
 
     /**
      * Define the model's default state.
@@ -24,8 +26,9 @@ class OrderSessionFactory extends Factory
     public function definition()
     {
         return [
+            'order_id' => Order::factory(),
             'user_id' => User::factory(),
-            'text' => $this->faker->text,
+            'coupon_id' => Coupon::factory(),
         ];
     }
 }

@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class OrderTransaction extends Model
+class CouponUsed extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -17,8 +16,8 @@ class OrderTransaction extends Model
      */
     protected $fillable = [
         'order_id',
-        'type',
-        'value',
+        'user_id',
+        'coupon_id',
     ];
 
     /**
@@ -29,11 +28,23 @@ class OrderTransaction extends Model
     protected $casts = [
         'id' => 'integer',
         'order_id' => 'integer',
+        'user_id' => 'integer',
+        'coupon_id' => 'integer',
     ];
 
 
     public function order()
     {
         return $this->belongsTo(\App\Models\Order::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class);
+    }
+
+    public function coupon()
+    {
+        return $this->belongsTo(\App\Models\Coupon::class);
     }
 }

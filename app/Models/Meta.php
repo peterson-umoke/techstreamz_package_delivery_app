@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Meta extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -30,8 +31,4 @@ class Meta extends Model
     protected $casts = [
         'id' => 'integer',
     ];
-
-    public function metaable() {
-        return $this->morphTo();
-    }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class OrderTransaction extends Model
+class Role extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -15,11 +15,7 @@ class OrderTransaction extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'order_id',
-        'type',
-        'value',
-    ];
+    protected $fillable = [];
 
     /**
      * The attributes that should be cast to native types.
@@ -28,12 +24,5 @@ class OrderTransaction extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'order_id' => 'integer',
     ];
-
-
-    public function order()
-    {
-        return $this->belongsTo(\App\Models\Order::class);
-    }
 }

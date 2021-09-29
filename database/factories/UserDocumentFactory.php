@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\User;
 use App\Models\UserDocument;
 
 class UserDocumentFactory extends Factory
@@ -23,6 +24,7 @@ class UserDocumentFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => User::factory(),
             'type' => $this->faker->word,
             'attachment' => $this->faker->word,
             'status' => $this->faker->word,

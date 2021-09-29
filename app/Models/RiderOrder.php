@@ -17,7 +17,7 @@ class RiderOrder extends Model
      */
     protected $fillable = [
         'order_id',
-        'rider_user_id',
+        'user_id',
         'assign_datetime',
         'rider_response',
         'rider_response_datetime',
@@ -41,7 +41,7 @@ class RiderOrder extends Model
     protected $casts = [
         'id' => 'integer',
         'order_id' => 'integer',
-        'rider_user_id' => 'integer',
+        'user_id' => 'integer',
         'assign_datetime' => 'datetime',
         'rider_response_datetime' => 'datetime',
         'user_response_datetime' => 'datetime',
@@ -55,11 +55,11 @@ class RiderOrder extends Model
 
     public function order()
     {
-        return $this->belongsTo(\App\Models\RiderOrder::class);
+        return $this->belongsTo(\App\Models\Order::class);
     }
 
-    public function riderUser()
+    public function user()
     {
-        return $this->belongsTo(\App\Models\RiderUser::class);
+        return $this->belongsTo(\App\Models\User::class);
     }
 }

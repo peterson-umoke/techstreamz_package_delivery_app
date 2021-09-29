@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Order;
 use App\Models\RiderOrder;
-use App\Models\RiderUser;
+use App\Models\User;
 
 class RiderOrderFactory extends Factory
 {
@@ -26,7 +26,7 @@ class RiderOrderFactory extends Factory
     {
         return [
             'order_id' => Order::factory(),
-            'rider_user_id' => RiderUser::factory(),
+            'user_id' => User::factory(),
             'assign_datetime' => $this->faker->dateTime(),
             'rider_response' => $this->faker->word,
             'rider_response_datetime' => $this->faker->dateTime(),

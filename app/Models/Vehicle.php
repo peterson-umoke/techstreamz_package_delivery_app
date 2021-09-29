@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Vehicle extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -15,13 +16,15 @@ class Vehicle extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
+        'vehicle_type_id',
         'make',
         'model',
         'year',
         'licence_plate',
         'color',
         'lat',
-        'lng',
+        'long',
         'is_online',
         'image',
     ];
@@ -33,6 +36,9 @@ class Vehicle extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'user_id' => 'integer',
+        'vehicle_type_id' => 'integer',
+        'is_online' => 'boolean',
     ];
 
 
@@ -43,6 +49,6 @@ class Vehicle extends Model
 
     public function vehicleType()
     {
-        return $this->hasOne(\App\Models\VehicleType::class);
+        return $this->belongsTo(\App\Models\VehicleType::class);
     }
 }

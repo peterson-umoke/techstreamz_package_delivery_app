@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\Order;
 use App\Models\OrderTransaction;
 
 class OrderTransactionFactory extends Factory
@@ -23,6 +24,7 @@ class OrderTransactionFactory extends Factory
     public function definition()
     {
         return [
+            'order_id' => Order::factory(),
             'type' => $this->faker->word,
             'value' => $this->faker->text,
         ];

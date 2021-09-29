@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\DeliveryAddress;
+use App\Models\User;
 
 class DeliveryAddressFactory extends Factory
 {
@@ -23,8 +24,9 @@ class DeliveryAddressFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => User::factory(),
             'lat' => $this->faker->latitude,
-            'lng' => $this->faker->longitude,
+            'long' => $this->faker->word,
             'city' => $this->faker->city,
             'state' => $this->faker->word,
             'country' => $this->faker->country,

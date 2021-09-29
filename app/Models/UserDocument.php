@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserDocument extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -15,6 +16,7 @@ class UserDocument extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'type',
         'attachment',
         'status',
@@ -28,6 +30,7 @@ class UserDocument extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'user_id' => 'integer',
     ];
 
 
