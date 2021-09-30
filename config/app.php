@@ -232,6 +232,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // package
+        "LaravelRating" => \Nagy\LaravelRating\LaravelRatingFacade::class,
+
     ],
 
 ];
