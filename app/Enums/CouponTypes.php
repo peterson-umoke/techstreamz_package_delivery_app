@@ -4,7 +4,7 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
-final class CouponType extends Enum
+final class CouponTypes extends Enum
 {
     const Android =   'android';
     const Web =   'web';
