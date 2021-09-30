@@ -29,18 +29,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 //
 Route::get('test', function () {
-//    $latitude       =       "28.418715";
-//    $longitude      =       "77.0478997";
-//    /** @var \Illuminate\Database\Eloquent\Builder $sql */
-//    $sql = \App\Models\Vehicle::nearest_vehicles($latitude, $longitude, 1);
-//    dd($sql->get(), $sql->toSql());
-    $query = \App\Models\Coupon::ifCouponUsed(1, 'lool');
-    $query2 = \App\Models\Coupon::checkCode('lol',20);
-    dd(
-      $query->toSql(),
-        $query->get(),
-        $query2->toSql(),
-        $query2->getBindings(),
-        $query2->get(),
-    );
+
 });

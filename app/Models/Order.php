@@ -6,6 +6,7 @@ use App\Library\HasMeta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Nagy\LaravelRating\Traits\Rate\Rateable;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Order extends Model
@@ -13,6 +14,7 @@ class Order extends Model
     use HasFactory, SoftDeletes;
     use HasMeta;
     use InteractsWithMedia;
+    use Rateable;
 
     /**
      * The attributes that are mass assignable.

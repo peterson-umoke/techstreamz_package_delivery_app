@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -47,4 +48,15 @@ class CouponUsed extends Model
     {
         return $this->belongsTo(\App\Models\Coupon::class);
     }
+
+    public function scopeIsUsed(Builder $query, $coupon_id, $user_id)
+    {
+        return $query->whereRelation('coupon', 'id', $coupon_id)
+            ->whereRelation('user', 'id', $user_id);
+    }
+
+//    public function countUsedTimes($coupon_id)
+//    {
+//        return $this->newQuery()->where('coupon_id', $coupon_id);
+//    }
 }
