@@ -6,6 +6,7 @@ use App\Library\HasMeta;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\JoinClause;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Coupon extends Model
@@ -40,7 +41,12 @@ class Coupon extends Model
 
     public function orders()
     {
-        return $this->hasManyThrough(Order::class, CouponUsed::class, 'order_id', 'id', 'id', 'coupon_id');
+        return $this->hasManyThrough(Order::class, CouponUsed::class);
+    }
+
+    public function users()
+    {
+        return $this->hasManyThrough(User::class, CouponUsed::class);
     }
 
     public function couponUsed()
@@ -53,8 +59,21 @@ class Coupon extends Model
 //        return $query->exi
     }
 
-    public function isCouponUsed($code)
+    public function scopeifCouponUsed(Builder $query, $user_id, $code)
     {
-//        return $this->orders()->
+        return $query->leftJoin('coupon_useds', function ($join) {
+            $join->on('coupon_useds.id', '=', 'coupons.id');
+        })->leftJoin('orders', function ($join) {
+            $join->on('orders.id', '=', 'coupon_useds.id');
+        })->where('orders.user_id', $user_id)->where('coupons.coupon_code', $code);
     }
+//
+//    public function scopeCheckCode(Builder $query, $code, $user_id = '')
+//    {
+//        return $query
+//            ->whereCode($code)
+//            ->whereHas('users.id', function (Builder $query) use ($user_id) {
+//                $query->where('id', $user_id);
+//            });
+//    }
 }
