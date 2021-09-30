@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Library\Hasmeta;
+use App\Library\HasMeta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class OrderTransaction extends Model
 {
     use HasFactory, SoftDeletes;
-    use Hasmeta;
+    use HasMeta;
 
     /**
      * The attributes that are mass assignable.

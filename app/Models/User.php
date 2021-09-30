@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Library\Hasmeta;
+use App\Library\HasMeta;
+use App\Library\HasNearestItem;
 use DB;
 use Fouladgar\MobileVerification\Concerns\MustVerifyMobile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -29,9 +30,9 @@ class User extends Authenticatable implements MustVerifyEmail, MustVerifyPhoneNu
     use Billable;
     use HasRoles;
     use CanRate;
-    use Hasmeta;
+    use HasMeta;
     use InteractsWithMedia;
-    use MustVerifyMobile;
+    use MustVerifyMobile, HasNearestItem;
 
     /**
      * The attributes that are mass assignable.
@@ -136,13 +137,9 @@ class User extends Authenticatable implements MustVerifyEmail, MustVerifyPhoneNu
         return $query->role($role);
     }
 
-    public function scopeNearest_Drivers(Builder $query, $latitude = 0, $longitude = 0, $radius = 400)
+    public function scopeNearest_Drivers(Builder $query, $latitude, $longitude, $radius = 400)
     {
-        return $query->selectRaw("6371 * acos(cos(radians(?))
-                                * cos(radians(lat)) * cos(radians(lng) - radians(?))
-                                + sin(radians(?)) * sin(radians(lat))) AS distance", [$latitude, $longitude, $latitude])
-            ->having("distance", "<", $radius)
-            ->orderBy("distance")
+        return $query->nearest_items($latitude, $longitude, $radius)
             ->drivers()
             ->where('is_online', 1);
     }

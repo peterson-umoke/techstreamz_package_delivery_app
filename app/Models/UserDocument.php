@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Library\Hasmeta;
+use App\Library\HasMeta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,7 +11,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class UserDocument extends Model
 {
     use HasFactory, SoftDeletes;
-    use Hasmeta;
+    use HasMeta;
     use InteractsWithMedia;
 
     /**

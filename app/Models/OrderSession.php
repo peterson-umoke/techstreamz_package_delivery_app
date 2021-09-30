@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\Library\Hasmeta;
+use App\Library\HasMeta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class OrderSession extends Model
 {
     use HasFactory;
-    use Hasmeta;
+    use HasMeta;
 
     /**
      * The attributes that are mass assignable.

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Library\Hasmeta;
+use App\Library\HasMeta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,7 +12,7 @@ class RiderOrder extends Model
 {
     use HasFactory, SoftDeletes;
     use InteractsWithMedia;
-    use Hasmeta;
+    use HasMeta;
 
     /**
      * The attributes that are mass assignable.

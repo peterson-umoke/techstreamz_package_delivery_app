@@ -28,8 +28,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 //
-//Route::get('test', function () {
-//    $latitude       =       "28.418715";
-//    $longitude      =       "77.0478997";
-//    dd(\App\Models\User::nearest_drivers($latitude, $longitude,20)->get(),\App\Models\User::nearest_drivers()->toSql());
-//});
+Route::get('test', function () {
+    $latitude       =       "28.418715";
+    $longitude      =       "77.0478997";
+    /** @var \Illuminate\Database\Eloquent\Builder $sql */
+    $sql = \App\Models\Vehicle::nearest_vehicles($latitude, $longitude, 1);
+    dd($sql->get(), $sql->toSql());
+});

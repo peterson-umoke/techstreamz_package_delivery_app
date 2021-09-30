@@ -6,7 +6,7 @@ use App\Models\Meta;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-trait Hasmeta
+trait HasMeta
 {
     /**
      * Get all the metas.

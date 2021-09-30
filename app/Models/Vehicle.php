@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Library\HasNearestItem;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,6 +13,7 @@ class Vehicle extends Model
 {
     use HasFactory, SoftDeletes;
     use InteractsWithMedia;
+    use HasNearestItem;
 
     /**
      * The attributes that are mass assignable.
@@ -52,5 +55,23 @@ class Vehicle extends Model
     public function vehicleType()
     {
         return $this->belongsTo(\App\Models\VehicleType::class);
+    }
+
+    public function scopeNearest_Vehicles(Builder $query, $latitude, $longitude, $vehicleType = "", $radius = 400)
+    {
+        return $query
+            ->whereHas('vehicleType', function (Builder $query) use ($vehicleType) {
+                if (empty($vehicleType)) {
+                    return;
+                }
+
+                if (is_numeric($vehicleType)) {
+                    $query->whereId($vehicleType);
+                } else {
+                    $query->where('name', 'like', '%' . $vehicleType . '%');
+                }
+            })
+            ->nearest_items($latitude, $longitude, $radius)
+            ->where('is_online', 1);
     }
 }

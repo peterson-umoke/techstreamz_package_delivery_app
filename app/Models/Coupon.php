@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Library\Hasmeta;
+use App\Library\HasMeta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -11,7 +11,7 @@ class Coupon extends Model
 {
     use HasFactory;
     use InteractsWithMedia;
-    use Hasmeta;
+    use HasMeta;
 
     /**
      * The attributes that are mass assignable.
