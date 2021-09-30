@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Library\HasMeta;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,5 +36,10 @@ class OrderSession extends Model
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class);
+    }
+
+    public function scopefetchUser(Builder $query, $user_Id)
+    {
+        return $query->whereRelation('user', 'id', $user_Id);
     }
 }

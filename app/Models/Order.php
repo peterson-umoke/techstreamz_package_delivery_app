@@ -98,4 +98,9 @@ class Order extends Model
     {
         return $this->belongsTo(\App\Models\Coupon::class);
     }
+
+    public function riderOrder()
+    {
+        return $this->hasOne(RiderOrder::class);
+    }
 }
