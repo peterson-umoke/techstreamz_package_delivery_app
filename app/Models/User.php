@@ -4,9 +4,10 @@ namespace App\Models;
 
 use App\Library\HasMeta;
 use App\Library\HasNearestItem;
-use DB;
 use Fouladgar\MobileVerification\Concerns\MustVerifyMobile;
+use Fouladgar\MobileVerification\Contracts\MustVerifyMobile as MustVerifyPhoneNumber;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,8 +18,6 @@ use Laravel\Sanctum\HasApiTokens;
 use Nagy\LaravelRating\Traits\Rate\CanRate;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
-use Fouladgar\MobileVerification\Contracts\MustVerifyMobile as MustVerifyPhoneNumber;
-use Illuminate\Database\Eloquent\Builder;
 
 class User extends Authenticatable implements MustVerifyEmail, MustVerifyPhoneNumber
 {
