@@ -4,7 +4,7 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
-final class DriverResponse extends Enum
+final class RiderResponse extends Enum
 {
     const Accept = 'accept';
     const Cancel = 'cancel';
